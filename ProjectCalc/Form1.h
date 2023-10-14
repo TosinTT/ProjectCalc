@@ -424,9 +424,11 @@ namespace CppCLRWinFormsProject {
 		}
 
 	}
-		   
+		   //These are our variables
 		   double firstNum, secondNum, answer;
 		   String^ charOP;
+
+		   //These lines of code allows the user input numbers into the the text box
 private: System::Void NumbersOnly(System::Object^ sender, System::EventArgs^ e) {
 	Button^ numb = safe_cast<Button^>(sender);
 
@@ -437,28 +439,37 @@ private: System::Void NumbersOnly(System::Object^ sender, System::EventArgs^ e) 
 		txtDisplay->Text = txtDisplay->Text + numb->Text;
 	}
 }
+
+	   //These lines of Code handles all the arithmetic operations
 private: System::Void ArithmeticOP(System::Object^ sender, System::EventArgs^ e) {
 	Button^ Aop = safe_cast<Button^>(sender);
 	firstNum = double::Parse(txtDisplay->Text);
 	txtDisplay->Text = "";
 	charOP = Aop->Text;
 }
+
+	   //The codes below is to reset(clear) the display and revert it back to it's default which is 0  
 private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ e) {
 	txtDisplay->Text = "0";
 }
 private: System::Void btnCE_Click(System::Object^ sender, System::EventArgs^ e) {
 	txtDisplay->Text = "0";
 }
+
+	   //This handles the decimal point
 private: System::Void btnPoint_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (!txtDisplay->Text->Contains(".")) {
 		txtDisplay->Text = txtDisplay->Text + ".";
 	}
 }
+	   //This is for the erase text button, to erase texts in the display box
 private: System::Void btnErase_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (txtDisplay->Text->Length>0) {
 		txtDisplay->Text = txtDisplay->Text->Remove(txtDisplay->Text->Length -1,1);
 	}
 }
+
+	   //This handles the changing of a number to it's positive or negative value
 private: System::Void btnAddSub_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	if (txtDisplay->Text->Contains("-")) {
@@ -468,6 +479,9 @@ private: System::Void btnAddSub_Click(System::Object^ sender, System::EventArgs^
 		txtDisplay->Text = "-" + txtDisplay->Text;
 	}
 }
+
+ 
+	   // For the equal to button to Display results for the Arithmetic operations
 private: System::Void btnEqual_Click(System::Object^ sender, System::EventArgs^ e) {
 	secondNum = double::Parse(txtDisplay->Text);
 	if (charOP == "+") {
