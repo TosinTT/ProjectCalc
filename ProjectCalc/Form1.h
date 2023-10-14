@@ -418,6 +418,8 @@ namespace CppCLRWinFormsProject {
 #pragma endregion
 	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
+		   //These lines of code resets the display to 0 when all inputs have been erased
+ 
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 		if (txtDisplay->Text == "") {
 			txtDisplay->Text = "0";
